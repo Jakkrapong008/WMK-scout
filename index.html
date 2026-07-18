@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การดำเนินงานลูกเสือ โรงเรียนวัดแม่กะ</title>
+  
+  <!-- Google Fonts: Sarabun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       DESIGN SYSTEM & VARIABLES (Modern Clean Brown-White)
+       ========================================== */
+    :root {
+      --bg-primary: #FAF8F5;       /* ขาวครีมโทนอุ่น */
+      --bg-card: #FFFFFF;          /* ขาวบริสุทธิ์สำหรับกล่องเนื้อหา */
+      --color-primary: #5C4033;    /* น้ำตาลเข้มโกโก้ */
+      --color-primary-hover: #4A3329;
+      --color-primary-light: #8B6F56; /* น้ำตาลกาแฟ */
+      --color-secondary: #C2A687;   /* สีทรายทอง/ครีมเข้ม */
+      --color-accent: #E6DCD2;      /* สีครีมพาสเทล */
+      --color-accent-light: #F4EFEA;
+      --text-dark: #2C1A11;         /* สีน้ำตาลเกือบดำสำหรับข้อความหลัก */
+      --text-muted: #6E5F57;        /* สีน้ำตาลเทาสำหรับข้อความรอง */
+      --border-color: #E6DFD9;      /* สีเส้นขอบนุ่มนวล */
+      
+      /* สีประจำหมวดหมู่กิจกรรม */
+      --cat-teaching: #F5EBE6;      /* การเรียนการสอนลูกเสือ - น้ำตาลพาสเทล */
+      --cat-teaching-text: #8B4F30;
+      
+      --cat-ceremony: #EBF2F5;      /* พิธีการทางลูกเสือ - ฟ้าหม่นพาสเทล */
+      --cat-ceremony-text: #2D5B70;
+      
+      --cat-volunteer: #EBF5EC;     /* ลูกเสือจิตอาสาฯ - เขียวพาสเทล */
+      --cat-volunteer-text: #2D703E;
+      
+      --cat-staff: #F2EBF5;         /* คณะทำงาน/วิทยากร - ม่วงพาสเทล */
+      --cat-staff-text: #6A2D70;
+
+      --shadow-sm: 0 2px 8px rgba(92, 64, 51, 0.04);
+      --shadow-md: 0 8px 20px rgba(92, 64, 51, 0.08);
+      --shadow-lg: 0 16px 36px rgba(92, 64, 51, 0.12);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    /* ==========================================
+       HEADER SECTION
+       ========================================== */
+    header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* 3 Logos Layout */
+    .logos-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+      transition: var(--transition);
+    }
+
+    .logo-img:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    .app-title-container {
+      flex-grow: 1;
+      margin-left: 8px;
+    }
+
+    .app-subtitle {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-primary-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+
+    /* Decorated Fleur-de-lis SVG Background Pattern */
+    .scout-badge-decor {
+      width: 48px;
+      height: 48px;
+      fill: var(--color-secondary);
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================
+       NAVIGATION BAR
+       ========================================== */
+    .nav-wrapper {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 8px 0;
+      position: sticky;
+      top: 113px; /* Offset for Header height */
+      z-index: 99;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      color: var(--color-primary);
+      background-color: var(--color-accent-light);
+    }
+
+    .nav-link.active {
+      color: #FFFFFF;
+      background-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ==========================================
+       MAIN CONTENT CONTAINER
+       ========================================== */
+    main {
+      flex-grow: 1;
+      padding: 40px 0;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Wrapper */
+    .content-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .section-title-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-primary-light);
+    }
+
+    /* ==========================================
+       TAB 1: โครงสร้าง (STRUCTURE)
+       ========================================== */
+    .structure-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .image-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      cursor: zoom-in;
+      max-width: 100%;
+      background-color: #FAF8F5;
+      transition: var(--transition);
+    }
+
+    .image-frame:hover {
+      transform: scale(1.01);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .structure-img {
+      display: block;
+      width: 100%;
+      max-height: 700px;
+      object-fit: contain;
+    }
+
+    .image-overlay-hint {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background-color: rgba(92, 64, 51, 0.85);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .image-overlay-hint svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ==========================================
+       TAB 2: ปฏิทินกิจกรรม (CALENDAR)
+       ========================================== */
+    .calendar-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-accent-light);
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .calendar-title-month {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .calendar-btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .calendar-btn {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--color-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calendar-btn:hover {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    .calendar-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--border-color);
+    }
+
+    .calendar-day-header {
+      background-color: var(--color-primary-light);
+      color: #FFFFFF;
+      padding: 12px 4px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .calendar-cell {
+      background-color: var(--bg-card);
+      min-height: 110px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .calendar-cell:hover {
+      background-color: var(--color-accent-light);
+    }
+
+    .calendar-cell.different-month {
+      background-color: #FAF8F5;
+      color: #C0B4AC;
+    }
+
+    .calendar-cell.today {
+      background-color: var(--color-accent);
+      border: 2px solid var(--color-primary);
+    }
+
+    .calendar-day-number {
+      font-size: 14px;
+      font-weight: 700;
+      align-self: flex-end;
+    }
+
+    .calendar-events-container {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-height: 70px;
+      overflow-y: auto;
+    }
+
+    /* Small event bar in calendar cell */
+    .calendar-event-tag {
+      font-size: 11px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 600;
+      border-left: 3px solid;
+    }
+
+    .calendar-event-tag.cat-teaching {
+      background-color: var(--cat-teaching);
+      color: var(--cat-teaching-text);
+      border-color: var(--cat-teaching-text);
+    }
+    .calendar-event-tag.cat-ceremony {
+      background-color: var(--cat-ceremony);
+      color: var(--cat-ceremony-text);
+      border-color: var(--cat-ceremony-text);
+    }
+    .calendar-event-tag.cat-volunteer {
+      background-color: var(--cat-volunteer);
+      color: var(--cat-volunteer-text);
+      border-color: var(--cat-volunteer-text);
+    }
+    .calendar-event-tag.cat-staff {
+      background-color: var(--cat-staff);
+      color: var(--cat-staff-text);
+      border-color: var(--cat-staff-text);
+    }
+
+    /* ==========================================
+       TAB 3: ภาพกิจกรรม (ACTIVITY PHOTOS)
+       ========================================== */
+    .filter-panel {
+      background-color: var(--color-accent-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .search-row {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 46px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text-dark);
+      background-color: var(--bg-card);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(92, 64, 51, 0.15);
+    }
+
+    .search-icon-svg {
+      position: absolute;
+      left: 16px;
+      width: 18px;
+      height: 18px;
+      fill: var(--text-muted);
+    }
+
+    /* Category chips/buttons design instead of raw dropdown */
+    .category-chips-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .category-chips-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chip-btn:hover {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+      border-color: var(--color-secondary);
+    }
+
+    .chip-btn.active {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Activity Card Grid */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .activity-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: var(--transition);
+    }
+
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Thumbnail fallback area with Scout theme pattern */
+    .activity-thumb {
+      height: 140px;
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .activity-thumb::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 10%, transparent 10.5%);
+      background-size: 16px 16px;
+      top: -50%;
+      left: -50%;
+    }
+
+    .activity-thumb svg {
+      width: 56px;
+      height: 56px;
+      fill: var(--color-accent);
+      opacity: 0.9;
+    }
+
+    .activity-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 12px;
+    }
+
+    .activity-date-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .activity-date-row svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .activity-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 48px;
+    }
+
+    .activity-tag {
+      align-self: flex-start;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 30px;
+    }
+
+    .activity-tag.cat-teaching { background-color: var(--cat-teaching); color: var(--cat-teaching-text); }
+    .activity-tag.cat-ceremony { background-color: var(--cat-ceremony); color: var(--cat-ceremony-text); }
+    .activity-tag.cat-volunteer { background-color: var(--cat-volunteer); color: var(--cat-volunteer-text); }
+    .activity-tag.cat-staff { background-color: var(--cat-staff); color: var(--cat-staff-text); }
+
+    .activity-footer {
+      padding: 0 20px 20px 20px;
+    }
+
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid var(--color-primary);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-action:hover {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-action svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ==========================================
+       TAB 4: เอกสารประกอบ (DOCUMENTS)
+       ========================================== */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .doc-card {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .doc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-secondary);
+    }
+
+    .doc-logo-container {
+      width: 90px;
+      height: 90px;
+      background-color: var(--color-accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .doc-card:hover .doc-logo-container {
+      transform: scale(1.05);
+      background-color: var(--color-accent);
+    }
+
+    .doc-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .doc-logo-fallback {
+      width: 44px;
+      height: 44px;
+      fill: var(--color-primary-light);
+    }
+
+    .doc-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      min-height: 44px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .btn-doc-link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: var(--bg-primary);
+      border: 1.5px solid var(--color-secondary);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      margin-top: auto;
+    }
+
+    .btn-doc-link:hover {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-doc-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* ==========================================
+       LOADING, ERROR, AND EMPTY STATES
+       ========================================== */
+    .state-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      gap: 20px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--color-accent);
+      border-top: 5px solid var(--color-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .state-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .state-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    .state-icon svg {
+      width: 80px;
+      height: 80px;
+      fill: var(--color-secondary);
+      opacity: 0.6;
+    }
+
+    .btn-retry {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-retry:hover {
+      background-color: var(--color-primary-hover);
+    }
+
+    /* ==========================================
+       LIGHTBOX / MODAL SYSTEM
+       ========================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(44, 26, 17, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-container {
+      background-color: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 700px;
+      overflow: hidden;
+      animation: modalSlideUp 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes modalSlideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .modal-close-btn:hover {
+      background-color: var(--bg-primary);
+      color: var(--color-primary);
+    }
+
+    .modal-body {
+      padding: 24px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    /* Detail Modal Specifics */
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .detail-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    /* Lightbox Modal Specifics (for Structure image) */
+    .lightbox-modal {
+      max-width: 90vw;
+      max-height: 90vh;
+      background: transparent;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      color: #FFFFFF;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      padding: 6px;
+    }
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
+    footer {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-desc {
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    /* ==========================================
+       RESPONSIVE ADJUSTMENTS
+       ========================================== */
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 0;
+      }
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+      .logos-group {
+        justify-content: center;
+      }
+      .logo-img {
+        height: 48px;
+      }
+      .app-title-container {
+        margin-left: 0;
+      }
+      .app-title {
+        font-size: 18px;
+      }
+      .nav-wrapper {
+        top: 0; /* Align directly under sticky head if scrolling, or let standard scroll */
+        position: relative;
+      }
+      .nav-tabs {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav-link {
+        padding: 10px 16px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      main {
+        padding: 24px 0;
+      }
+      .content-card {
+        padding: 20px;
+      }
+      .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+      }
+      .calendar-cell {
+        min-height: 70px;
+        padding: 4px;
+      }
+      .calendar-day-header {
+        font-size: 11px;
+        padding: 8px 2px;
+      }
+      .calendar-day-number {
+        font-size: 12px;
+      }
+      .calendar-events-container {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+        overflow: hidden;
+      }
+      .calendar-event-tag {
+        width: 6px;
+        height: 6px;
+        padding: 0;
+        border-radius: 50%;
+        border: none;
+      }
+      .calendar-event-tag span {
+        display: none; /* Hide text on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+  <header>
+    <div class="container header-content">
+      <div class="logos-group">
+        <!-- Logo 1: สพฐ หรือ สำนักงานเขตพื้นที่การศึกษา -->
+        <img class="logo-img" src="https://lh3.googleusercontent.com/d/1vI1N8M4Nlx4FCbl3pTFOMf3NXhRGRDJ4" alt="Logo 1">
+        <!-- Logo 2: ตราโรงเรียนวัดแม่กะ -->
+        <img class="logo-img" src="https://lh3.googleusercontent.com/d/18gS-n-Lq_Yl_Cw38JDVUzJ3NaFDqTpoh" alt="Logo 2">
+        <!-- Logo 3: ตราลูกเสือแห่งชาติ -->
+        <img class="logo-img" src="https://lh3.googleusercontent.com/d/1KIUFM2QIvB_K-E_u0R1Mob0bbi-7SIu1" alt="Logo 3">
+      </div>
+      <div class="app-title-container">
+        <div class="app-subtitle">งานลูกเสือระดับโรงเรียน</div>
+        <h1 class="app-title">การดำเนินงานลูกเสือ โรงเรียนวัดแม่กะ</h1>
+      </div>
+      <div class="scout-badge-decor">
+        <!-- Scout emblem vector SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C11.5 4 10 5.5 8.5 7C7 8.5 5 10 5 12C5 15.87 8.13 19 12 19C15.87 19 19 15.87 19 12C19 10 17 8.5 15.5 7C14 5.5 12.5 4 12 2M12 4.3C12.5 5.5 13.5 6.5 14.8 7.7C16.3 9.1 17 10.3 17 12C17 14.8 14.8 17 12 17C9.2 17 7 14.8 7 12C7 10.3 7.7 9.1 9.2 7.7C10.5 6.5 11.5 5.5 12 4.3M12 9C10.9 9 10 9.9 10 11C10 12.1 10.9 13 12 13C13.1 13 14 12.1 14 11C14 9.9 13.1 9 12 9Z" />
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       NAVIGATION TABS
+       ========================================== -->
+  <div class="nav-wrapper">
+    <div class="container">
+      <ul class="nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" onclick="switchTab('tab-structure')" id="nav-structure-tab">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 22H22L12 2M12 6L18.8 18H5.2L12 6M11 10V13H8V15H11V17H13V15H16V13H13V10H11Z"/></svg>
+            <span>โครงสร้าง</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="switchTab('tab-calendar')" id="nav-calendar-tab">
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M16 1V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1M17 12H12V17H17V12Z"/></svg>
+            <span>ปฏิทินกิจกรรม</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="switchTab('tab-photos')" id="nav-photos-tab">
+            <svg viewBox="0 0 24 24"><path d="M20 4H16.82L15 2H9L7.18 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4M20 18H4V6H8.05L9.88 4H14.12L15.95 6H20V18M12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8M12 14C10.9 14 10 13.1 10 12C10 10.9 10.9 10 12 10C13.1 10 14 10.9 14 12C14 13.1 13.1 14 12 14Z"/></svg>
+            <span>ภาพกิจกรรม</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="switchTab('tab-docs')" id="nav-docs-tab">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M16 11H8V13H16V11M16 15H8V17H16V15Z"/></svg>
+            <span>เอกสารประกอบ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main class="container">
+    
+    <!-- LOADING STATE -->
+    <div id="data-loading-state" class="content-card state-container">
+      <div class="spinner"></div>
+      <h3 class="state-title">กำลังดึงข้อมูล...</h3>
+      <p class="state-desc">ระบบกำลังดึงข้อมูลกิจกรรมและเอกสารการดำเนินงานลูกเสือจาก Google Sheets กรุณารอสักครู่</p>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div id="data-error-state" class="content-card state-container" style="display: none;">
+      <div class="state-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z" />
+        </svg>
+      </div>
+      <h3 class="state-title">เกิดข้อผิดพลาดในการโหลดข้อมูล</h3>
+      <p class="state-desc" id="error-message-text">ไม่สามารถเชื่อมต่อฐานข้อมูล Google Sheets ได้ กรุณาตรวจสอบการตั้งค่า GAS หรือลองใหม่อีกครั้ง</p>
+      <button class="btn-retry" onclick="fetchDataFromGAS()">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4C7.58 4 4.01 7.58 4.01 12C4.01 16.42 7.58 20 12 20C15.73 20 18.84 17.45 19.73 14H17.65C16.83 16.33 14.61 18 12 18C8.69 18 6 15.31 6 12C6 8.69 8.69 6 12 6C13.66 6 15.14 6.69 16.22 7.78L13 11H20V4L17.65 6.35Z"/></svg>
+        <span>โหลดข้อมูลอีกครั้ง</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         TAB 1: โครงสร้าง (STRUCTURE)
+         ========================================== -->
+    <div id="tab-structure" class="tab-content active">
+      <div class="content-card">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 22H22L12 2M12 6L18.8 18H5.2L12 6M11 10V13H8V15H11V17H13V15H16V13H13V10H11Z"/></svg>
+            โครงสร้างการดำเนินงานลูกเสือ
+          </h2>
+        </div>
+        
+        <div class="structure-container">
+          <div class="image-frame" onclick="openLightbox('https://lh3.googleusercontent.com/d/1hGsbO6fW7zhhbFDLu3xtWxCnhbkgAvRw')">
+            <img class="structure-img" src="https://lh3.googleusercontent.com/d/1hGsbO6fW7zhhbFDLu3xtWxCnhbkgAvRw" alt="โครงสร้างการดำเนินงานลูกเสือ" onerror="this.src='https://placehold.co/800x600/5c4033/ffffff?text=Scout+Structure+Image'">
+            <div class="image-overlay-hint">
+              <svg viewBox="0 0 24 24"><path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.5L20.5 19L15.5 14M9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14M12 10H10V12H9V10H7V9H9V7H10V9H12V10Z"/></svg>
+              คลิกเพื่อดูรูปภาพขนาดใหญ่
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         TAB 2: ปฏิทินกิจกรรม (CALENDAR)
+         ========================================== -->
+    <div id="tab-calendar" class="tab-content">
+      <div class="content-card">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M16 1V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1M17 12H12V17H17V12Z"/></svg>
+            ปฏิทินกิจกรรมลูกเสือ
+          </h2>
+        </div>
+
+        <div class="calendar-wrapper">
+          <!-- Calendar Nav Controls -->
+          <div class="calendar-header">
+            <div class="calendar-title-month" id="calendar-month-year-label">กรกฎาคม 2569</div>
+            <div class="calendar-btn-group">
+              <button class="calendar-btn" onclick="prevMonth()" title="เดือนก่อนหน้า">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/></svg>
+              </button>
+              <button class="calendar-btn" onclick="goToToday()" title="กลับไปเดือนปัจจุบัน" style="font-size:12px; font-weight:700; width:auto; padding: 0 14px; border-radius: 20px;">
+                วันนี้
+              </button>
+              <button class="calendar-btn" onclick="nextMonth()" title="เดือนถัดไป">
+                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41L13.17 12L8.59 16.59L10 18L16 12L10 6Z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Calendar Grid System -->
+          <div class="calendar-grid" id="calendar-grid-cells">
+            <!-- Headers and cells will be injected here via Javascript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         TAB 3: ภาพกิจกรรม (ACTIVITY PHOTOS)
+         ========================================== -->
+    <div id="tab-photos" class="tab-content">
+      <!-- Search & Filters Container -->
+      <div class="filter-panel">
+        <div class="search-row">
+          <div class="form-group">
+            <label class="form-label" for="search-input-field">ค้นหากิจกรรม</label>
+            <div class="input-wrapper">
+              <svg class="search-icon-svg" viewBox="0 0 24 24"><path d="M9.5 3C13.09 3 16 5.91 16 9.5C16 11.11 15.41 12.59 14.43 13.73L20.5 19.8L19 21.3L12.93 15.23C11.79 16.21 10.31 16.8 8.7 16.8C5.11 16.8 2.2 13.89 2.2 10.3C2.2 6.71 5.11 3.8 8.7 3.8H9.5M9.5 5.8C7.46 5.8 5.8 7.46 5.8 9.5C5.8 11.54 7.46 13.2 9.5 13.2C11.54 13.2 13.2 11.54 13.2 9.5C13.2 7.46 11.54 5.8 9.5 5.8Z"/></svg>
+              <input type="text" id="search-input-field" class="search-input" placeholder="พิมพ์ชื่อกิจกรรมเพื่อค้นหา..." oninput="handleSearchFilter()">
+            </div>
+          </div>
+          <div class="form-group" style="display: none;">
+            <!-- Hidden native select for accessibility or fallback -->
+            <select id="category-select-field">
+              <option value="ALL">ทั้งหมด</option>
+            </select>
+          </div>
+        </div>
+        
+        <div>
+          <div class="category-chips-label">เลือกหมวดหมู่กิจกรรม</div>
+          <div class="category-chips-container" id="category-chips">
+            <button class="chip-btn active" onclick="selectCategoryChip('ALL', this)">ทั้งหมด</button>
+            <button class="chip-btn" onclick="selectCategoryChip('การเรียนการสอนลูกเสือ', this)">การเรียนการสอนลูกเสือ</button>
+            <button class="chip-btn" onclick="selectCategoryChip('พิธีการทางลูกเสือ', this)">พิธีการทางลูกเสือ</button>
+            <button class="chip-btn" onclick="selectCategoryChip('ลูกเสือจิตอาสาพระราชทาน', this)">ลูกเสือจิตอาสาพระราชทาน</button>
+            <button class="chip-btn" onclick="selectCategoryChip('คณะทำงาน/วิทยากร', this)">คณะทำงาน/วิทยากร</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activities Grid -->
+      <div class="activities-grid" id="activities-grid-container">
+        <!-- Activity Cards will be injected here via Javascript -->
+      </div>
+
+      <!-- No Data State (Photos tab) -->
+      <div id="activities-empty-state" class="content-card state-container" style="display: none;">
+        <div class="state-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4C2.89 4 2 4.89 2 6V18C2 19.1 2.89 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.89 21.1 4 20 4M20 18H4V6H20V18M12 11.5C11.5 11.5 11 11 11 10.5C11 10 11.5 9.5 12 9.5C12.5 9.5 13 10 13 10.5C13 11 12.5 11.5 12 11.5M16 11.5C15.5 11.5 15 11 15 10.5C15 10 15.5 9.5 16 9.5C16.5 9.5 17 10 17 10.5C17 11 16.5 11.5 16 11.5M12 16.5C9 16.5 7.5 14.5 7.5 14.5H16.5C16.5 14.5 15 16.5 12 16.5Z"/></svg>
+        </div>
+        <h3 class="state-title">ไม่พบกิจกรรมที่ค้นหา</h3>
+        <p class="state-desc">ไม่มีข้อมูลกิจกรรมที่ตรงกับข้อความหรือหมวดหมู่ที่ท่านเลือกในปัจจุบัน</p>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         TAB 4: เอกสารประกอบ (DOCUMENTS)
+         ========================================== -->
+    <div id="tab-docs" class="tab-content">
+      <div class="content-card">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M16 11H8V13H16V11M16 15H8V17H16V15Z"/></svg>
+            เอกสารประกอบการดำเนินงาน
+          </h2>
+        </div>
+
+        <!-- Documents Grid -->
+        <div class="docs-grid" id="docs-grid-container">
+          <!-- Document cards will be injected here via Javascript -->
+        </div>
+
+        <!-- No Data State (Docs tab) -->
+        <div id="docs-empty-state" class="content-card state-container" style="display: none;">
+          <div class="state-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M19 19H5V5H19V19M16 12H8V14H16V12M12 8H8V10H12V8M16 16H8V18H16V16Z"/></svg>
+          </div>
+          <h3 class="state-title">ยังไม่มีเอกสารประกอบในระบบ</h3>
+          <p class="state-desc">ท่านยังไม่ได้เพิ่มเอกสารประกอบในหน้าเอกสารของชีท Google Sheets</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       LIGHTBOX / DETAILED EVENT MODAL SYSTEM
+       ========================================== -->
+  <!-- 1. Detail Modal for Calendar Activities -->
+  <div id="event-detail-modal" class="modal-overlay" onclick="closeEventModal()">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title" id="detail-modal-title">รายละเอียดกิจกรรมลูกเสือ</h3>
+        <button class="modal-close-btn" onclick="closeEventModal()" aria-label="ปิด">&times;</button>
+      </div>
+      <div class="modal-body" id="detail-modal-content">
+        <!-- Content will be injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Lightbox Modal for Images -->
+  <div id="image-lightbox-modal" class="modal-overlay" onclick="closeLightbox()">
+    <button class="modal-close-btn lightbox-close-btn" onclick="closeLightbox()" aria-label="ปิด">
+      <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/></svg>
+    </button>
+    <div class="lightbox-modal" onclick="event.stopPropagation()">
+      <img id="lightbox-display-img" class="lightbox-img" src="" alt="แสดงรูปภาพขนาดเต็ม">
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2569 โรงเรียนวัดแม่กะ. สงวนลิขสิทธิ์</p>
+      <p class="footer-desc">ระบบเผยแพร่ข้อมูลสารสนเทศการดำเนินงานกิจกรรมลูกเสือ โรงเรียนวัดแม่กะ</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT APP LOGIC
+       ========================================== -->
+  <script>
+    // การตั้งค่าแอปพลิเคชัน
+    const CONFIG = {
+      GAS_URL: "https://script.google.com/macros/s/AKfycbz1FTJiLEBJHXsEsT5gosiupV0QDVbew7Hqr45C-8pZ3vGzmJ6IsDrHxrx5FGaiRv-EjA/exec",
+      defaultImageFallback: "https://placehold.co/400x300/5c4033/ffffff?text=%E0%B8%81%E0%B8%B4%E0%B8%8 luxury+%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B9%80%E0%B8%AA%E0%B8%B7%E0%B8%AD"
+    };
+
+    // State การทำงาน
+    let appState = {
+      activities: [],
+      documents: [],
+      currentTab: 'tab-structure',
+      currentYear: new Date().getFullYear(),
+      currentMonth: new Date().getMonth(), // 0-11
+      selectedCategory: 'ALL',
+      searchText: ''
+    };
+
+    // แถบวันไทยสำหรับการวาดปฏิทิน
+    const THAI_DAYS = ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'];
+    const THAI_MONTHS = [
+      'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+      'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+    ];
+
+    /**
+     * เปลี่ยนการแสดงผลแท็บเมนู
+     */
+    function switchTab(tabId) {
+      // ซ่อนทุกแท็บ
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+      
+      // แสดงแท็บที่เลือก
+      const targetTab = document.getElementById(tabId);
+      if (targetTab) {
+        targetTab.classList.add('active');
+        appState.currentTab = tabId;
+      }
+      
+      // ตั้งค่าปุ่มใน Navbar ให้ active
+      const linkMap = {
+        'tab-structure': 'nav-structure-tab',
+        'tab-calendar': 'nav-calendar-tab',
+        'tab-photos': 'nav-photos-tab',
+        'tab-docs': 'nav-docs-tab'
+      };
+      
+      const activeLinkId = linkMap[tabId];
+      if (activeLinkId) {
+        document.getElementById(activeLinkId).classList.add('active');
+      }
+
+      // รีเฟรชข้อมูลปฏิทินถ้ากดเข้าแท็บปฏิทิน
+      if (tabId === 'tab-calendar') {
+        renderCalendar();
+      }
+    }
+
+    /**
+     * ดึงข้อมูลจาก GAS Web App API
+     */
+    async function fetchDataFromGAS() {
+      const loadingEl = document.getElementById('data-loading-state');
+      const errorEl = document.getElementById('data-error-state');
+      
+      // แสดงหน้ากำลังโหลด ซ่อนส่วนอื่นๆ
+      loadingEl.style.display = 'flex';
+      errorEl.style.display = 'none';
+      
+      try {
+        const response = await fetch(CONFIG.GAS_URL);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          appState.activities = result.activities || [];
+          appState.documents = result.documents || [];
+          
+          // โหลดข้อมูลเสร็จสิ้น ซ่อนกล่องโหลดข้อมูล
+          loadingEl.style.display = 'none';
+          
+          // แสดงผลข้อมูลในแต่ละหน้าจอ
+          renderCalendar();
+          renderActivitiesGrid();
+          renderDocumentsGrid();
+        } else {
+          throw new Error(result.error || "เกิดข้อผิดพลาดไม่ทราบสาเหตุจากฝั่งสคริปต์");
+        }
+      } catch (err) {
+        console.error("Error loading data: ", err);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+        document.getElementById('error-message-text').innerText = 
+          `ไม่สามารถดึงข้อมูลได้: ${err.message} (กรุณาตรวจสอบว่าได้ตั้งค่าและเผยแพร่สคริปต์หลังบ้านเป็น Web App แล้วหรือยัง)`;
+      }
+    }
+
+    /**
+     * ==========================================
+     * LOGIC FOR TAB 2: CALENDAR
+     * ==========================================
+     */
+    function renderCalendar() {
+      const gridCells = document.getElementById('calendar-grid-cells');
+      const labelMonthYear = document.getElementById('calendar-month-year-label');
+      gridCells.innerHTML = '';
+      
+      // 1. ตั้งค่าแสดงชื่อเดือนและปีไทย (ปี พ.ศ.)
+      const displayYearThai = appState.currentYear + 543;
+      labelMonthYear.innerText = `${THAI_MONTHS[appState.currentMonth]} ${displayYearThai}`;
+      
+      // 2. สร้างแถบหัวข้อวัน (อา - ส)
+      THAI_DAYS.forEach(day => {
+        const headerCell = document.createElement('div');
+        headerCell.className = 'calendar-day-header';
+        headerCell.innerText = day;
+        gridCells.appendChild(headerCell);
+      });
+      
+      // 3. หาวันแรกของเดือนและวันทั้งหมดในเดือนนั้น
+      const firstDayIndex = new Date(appState.currentYear, appState.currentMonth, 1).getDay(); // 0 (อา) - 6 (ส)
+      const totalDays = new Date(appState.currentYear, appState.currentMonth + 1, 0).getDate();
+      
+      // 4. หาวันทั้งหมดในเดือนก่อนหน้าสำหรับแสดงช่องจางๆ
+      const prevMonthTotalDays = new Date(appState.currentYear, appState.currentMonth, 0).getDate();
+      
+      // 5. วาดปฏิทินรวม 42 ช่อง (6 แถว แถวละ 7 วัน)
+      const totalCellsNeeded = 42;
+      const today = new Date();
+      
+      for (let i = 0; i < totalCellsNeeded; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'calendar-cell';
+        
+        let cellDay, cellMonth, cellYear;
+        
+        if (i < firstDayIndex) {
+          // วันของเดือนก่อนหน้า
+          cell.classList.add('different-month');
+          cellDay = prevMonthTotalDays - firstDayIndex + i + 1;
+          cellMonth = appState.currentMonth - 1;
+          cellYear = appState.currentYear;
+          if (cellMonth < 0) {
+            cellMonth = 11;
+            cellYear--;
+          }
+        } else if (i >= firstDayIndex + totalDays) {
+          // วันของเดือนถัดไป
+          cell.classList.add('different-month');
+          cellDay = i - (firstDayIndex + totalDays) + 1;
+          cellMonth = appState.currentMonth + 1;
+          cellYear = appState.currentYear;
+          if (cellMonth > 11) {
+            cellMonth = 0;
+            cellYear++;
+          }
+        } else {
+          // วันของเดือนปัจจุบัน
+          cellDay = i - firstDayIndex + 1;
+          cellMonth = appState.currentMonth;
+          cellYear = appState.currentYear;
+          
+          // เช็คว่าเป็นวันปัจจุบันหรือไม่
+          if (today.getDate() === cellDay && today.getMonth() === cellMonth && today.getFullYear() === cellYear) {
+            cell.classList.add('today');
+          }
+        }
+        
+        // วางตัวเลขวันที่
+        const dayNum = document.createElement('div');
+        dayNum.className = 'calendar-day-number';
+        dayNum.innerText = cellDay;
+        cell.appendChild(dayNum);
+        
+        // กรองกิจกรรมในวันนี้
+        const dateStr = `${cellYear}-${String(cellMonth + 1).padStart(2, '0')}-${String(cellDay).padStart(2, '0')}`;
+        const dayEvents = appState.activities.filter(act => act.date === dateStr);
+        
+        // ใส่กล่องแสดงกิจกรรม
+        const eventsContainer = document.createElement('div');
+        eventsContainer.className = 'calendar-events-container';
+        
+        dayEvents.forEach(act => {
+          const eventTag = document.createElement('div');
+          eventTag.className = `calendar-event-tag ${getCategoryClass(act.category)}`;
+          
+          // สร้างข้อความ
+          const tagSpan = document.createElement('span');
+          tagSpan.innerText = act.name;
+          eventTag.appendChild(tagSpan);
+          eventsContainer.appendChild(eventTag);
+        });
+        
+        cell.appendChild(eventsContainer);
+        
+        // ผูก Event Click เมื่อกดที่เซลล์ปฏิทิน
+        cell.onclick = () => showDayDetail(cellDay, cellMonth, cellYear, dayEvents);
+        
+        gridCells.appendChild(cell);
+      }
+    }
+
+    function prevMonth() {
+      appState.currentMonth--;
+      if (appState.currentMonth < 0) {
+        appState.currentMonth = 11;
+        appState.currentYear--;
+      }
+      renderCalendar();
+    }
+
+    function nextMonth() {
+      appState.currentMonth++;
+      if (appState.currentMonth > 11) {
+        appState.currentMonth = 0;
+        appState.currentYear++;
+      }
+      renderCalendar();
+    }
+
+    function goToToday() {
+      const today = new Date();
+      appState.currentYear = today.getFullYear();
+      appState.currentMonth = today.getMonth();
+      renderCalendar();
+    }
+
+    /**
+     * ดึงคลาส CSS ตามหมวดหมู่กิจกรรม
+     */
+    function getCategoryClass(category) {
+      switch (category) {
+        case 'การเรียนการสอนลูกเสือ': return 'cat-teaching';
+        case 'พิธีการทางลูกเสือ': return 'cat-ceremony';
+        case 'ลูกเสือจิตอาสาพระราชทาน': return 'cat-volunteer';
+        case 'คณะทำงาน/วิทยากร': return 'cat-staff';
+        default: return 'cat-teaching';
+      }
+    }
+
+    /**
+     * แสดง Modal รายละเอียดกิจกรรมของวันนั้นๆ
+     */
+    function showDayDetail(day, month, year, events) {
+      const modal = document.getElementById('event-detail-modal');
+      const titleEl = document.getElementById('detail-modal-title');
+      const contentEl = document.getElementById('detail-modal-content');
+      
+      const dateText = `${day} ${THAI_MONTHS[month]} พ.ศ. ${year + 543}`;
+      titleEl.innerText = `กิจกรรมวันที่ ${dateText}`;
+      
+      if (events.length === 0) {
+        contentEl.innerHTML = `
+          <div class="state-container" style="padding: 20px 0;">
+            <p class="state-desc">ไม่มีกิจกรรมถูกบันทึกไว้ในวันนี้</p>
+          </div>
+        `;
+      } else {
+        let eventsHtml = '<div style="display:flex; flex-direction:column; gap:20px;">';
+        events.forEach((act, idx) => {
+          eventsHtml += `
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 8px;">
+              <div class="detail-item">
+                <span class="detail-label">หมวดหมู่</span>
+                <span class="activity-tag ${getCategoryClass(act.category)}" style="font-size:13px; align-self: flex-start;">${act.category}</span>
+              </div>
+              <div class="detail-item" style="margin-top: 8px;">
+                <span class="detail-label">ชื่อกิจกรรม</span>
+                <h4 style="font-size:18px; font-weight:700; color:var(--text-dark);">${act.name}</h4>
+              </div>
+              ${act.imageLink ? `
+                <div style="margin-top: 16px;">
+                  <a href="${act.imageLink}" target="_blank" class="btn-action" style="max-width:200px;">
+                    <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H17.5L13.96 12.29Z"/></svg>
+                    <span>ดูภาพกิจกรรม</span>
+                  </a>
+                </div>
+              ` : ''}
+            </div>
+          `;
+        });
+        eventsHtml += '</div>';
+        contentEl.innerHTML = eventsHtml;
+      }
+      
+      modal.classList.add('active');
+    }
+
+    function closeEventModal() {
+      document.getElementById('event-detail-modal').classList.remove('active');
+    }
+
+    /**
+     * ==========================================
+     * LOGIC FOR TAB 3: ACTIVITY PHOTOS GRID
+     * ==========================================
+     */
+    function selectCategoryChip(category, element) {
+      // เอา active ออกจากทุกปุ่ม
+      const chips = document.querySelectorAll('.chip-btn');
+      chips.forEach(chip => chip.classList.remove('active'));
+      
+      // ใส่ active ให้ปุ่มที่เลือก
+      element.classList.add('active');
+      
+      appState.selectedCategory = category;
+      renderActivitiesGrid();
+    }
+
+    function handleSearchFilter() {
+      appState.searchText = document.getElementById('search-input-field').value.toLowerCase().trim();
+      renderActivitiesGrid();
+    }
+
+    function formatThaiDate(dateStr) {
+      if (!dateStr) return '';
+      
+      // ตรวจสอบความถูกต้องของโครงสร้าง YYYY-MM-DD
+      const dateParts = dateStr.split('-');
+      if (dateParts.length === 3) {
+        const year = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]) - 1;
+        const day = parseInt(dateParts[2]);
+        
+        if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+          return `${day} ${THAI_MONTHS[month]} ${year + 543}`;
+        }
+      }
+      return dateStr; // คืนค่าข้อความดิบถ้าไม่เข้าเงื่อนไข YYYY-MM-DD
+    }
+
+    function renderActivitiesGrid() {
+      const container = document.getElementById('activities-grid-container');
+      const emptyState = document.getElementById('activities-empty-state');
+      container.innerHTML = '';
+      
+      // กรองข้อมูลตามที่ค้นหาและเลือกประเภท
+      let filtered = appState.activities;
+      
+      if (appState.selectedCategory !== 'ALL') {
+        filtered = filtered.filter(act => act.category === appState.selectedCategory);
+      }
+      
+      if (appState.searchText) {
+        filtered = filtered.filter(act => act.name.toLowerCase().includes(appState.searchText));
+      }
+      
+      if (filtered.length === 0) {
+        container.style.display = 'none';
+        emptyState.style.display = 'flex';
+        return;
+      }
+      
+      container.style.display = 'grid';
+      emptyState.style.display = 'none';
+      
+      filtered.forEach(act => {
+        const card = document.createElement('div');
+        card.className = 'activity-card';
+        
+        // วาดส่วนหัวการ์ด (สีตามหมวดหมู่)
+        const tagClass = getCategoryClass(act.category);
+        
+        card.innerHTML = `
+          <div class="activity-thumb">
+            <!-- Icon Fleur-de-lis สำหรับตกแต่ง -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C11.5 4 10 5.5 8.5 7C7 8.5 5 10 5 12C5 15.87 8.13 19 12 19C15.87 19 19 15.87 19 12C19 10 17 8.5 15.5 7C14 5.5 12.5 4 12 2" />
+            </svg>
+          </div>
+          <div class="activity-body">
+            <div class="activity-date-row">
+              <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M16 1V3H8V1H6V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3H18V1M17 12H12V17H17V12Z"/></svg>
+              <span>${formatThaiDate(act.date)}</span>
+            </div>
+            <h4 class="activity-name" title="${act.name}">${act.name}</h4>
+            <span class="activity-tag ${tagClass}">${act.category}</span>
+          </div>
+          <div class="activity-footer">
+            ${act.imageLink ? `
+              <a href="${act.imageLink}" target="_blank" class="btn-action">
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H17.5L13.96 12.29Z"/></svg>
+                <span>ดูภาพกิจกรรม</span>
+              </a>
+            ` : `
+              <button class="btn-action" style="background-color: var(--color-accent); border-color: var(--color-accent); color: var(--text-muted); cursor: not-allowed;" disabled>
+                <svg viewBox="0 0 24 24"><path d="M19 19H5V8H19M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H17.5L13.96 12.29Z"/></svg>
+                <span>ไม่มีภาพกิจกรรม</span>
+              </button>
+            `}
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
+    }
+
+    /**
+     * ==========================================
+     * LOGIC FOR TAB 4: SUPPORTING DOCUMENTS
+     * ==========================================
+     */
+    function renderDocumentsGrid() {
+      const container = document.getElementById('docs-grid-container');
+      const emptyState = document.getElementById('docs-empty-state');
+      container.innerHTML = '';
+      
+      if (appState.documents.length === 0) {
+        container.style.display = 'none';
+        emptyState.style.display = 'flex';
+        return;
+      }
+      
+      container.style.display = 'grid';
+      emptyState.style.display = 'none';
+      
+      appState.documents.forEach(doc => {
+        const card = document.createElement('div');
+        card.className = 'doc-card';
+        
+        // ตรวจสอบภาพโลโก้
+        let logoHtml = '';
+        if (doc.logo && doc.logo.trim() !== '') {
+          logoHtml = `<img class="doc-logo" src="${doc.logo}" alt="${doc.name}" onerror="showDocLogoFallback(this)">`;
+        } else {
+          logoHtml = `
+            <svg class="doc-logo-fallback" viewBox="0 0 24 24">
+              <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M16 11H8V13H16V11M16 15H8V17H16V15Z" />
+            </svg>
+          `;
+        }
+        
+        card.innerHTML = `
+          <div class="doc-logo-container">
+            ${logoHtml}
+          </div>
+          <h4 class="doc-title" title="${doc.name}">${doc.name}</h4>
+          <a href="${doc.url}" target="_blank" class="btn-doc-link">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M12 18H6V16H12V18M16 14H6V12H16V14M16 10H6V8H16V10M19 7H14V2L19 7Z"/></svg>
+            <span>เปิดเอกสาร</span>
+          </a>
+        `;
+        
+        container.appendChild(card);
+      });
+    }
+
+    /**
+     * ฟังก์ชันเปลี่ยนรูปโลโก้เป็นไอคอนธรรมดาหากโหลดรูปไม่สำเร็จ
+     */
+    function showDocLogoFallback(imgElement) {
+      const container = imgElement.parentElement;
+      container.innerHTML = `
+        <svg class="doc-logo-fallback" viewBox="0 0 24 24">
+          <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M16 11H8V13H16V11M16 15H8V17H16V15Z" />
+        </svg>
+      `;
+    }
+
+    /**
+     * ==========================================
+     * LIGHTBOX IMAGE LOGIC
+     * ==========================================
+     */
+    function openLightbox(imgSrc) {
+      const modal = document.getElementById('image-lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-display-img');
+      lightboxImg.src = imgSrc;
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('image-lightbox-modal').classList.remove('active');
+    }
+
+    // เริ่มต้นระบบเมื่อเปิดหน้าเว็บ
+    window.addEventListener('DOMContentLoaded', () => {
+      // เรียกข้อมูลดึงข้อมูลจาก GAS
+      fetchDataFromGAS();
+    });
+  </script>
+</body>
+</html>
