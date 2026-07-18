@@ -143,8 +143,6 @@
       line-height: 1.2;
     }
 
-
-
     /* ==========================================
        NAVIGATION BAR
        ========================================== */
@@ -1503,7 +1501,8 @@
           // สร้างข้อความ
           const tagSpan = document.createElement('span');
           tagSpan.innerText = act.name;
-          eventTag.appendChild(eventTag); // Note: Should append span
+          eventTag.appendChild(tagSpan);
+          eventsContainer.appendChild(eventTag);
         });
         
         cell.appendChild(eventsContainer);
