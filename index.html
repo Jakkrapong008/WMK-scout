@@ -143,26 +143,7 @@
       line-height: 1.2;
     }
 
-    /* Decorated Fleur-de-lis Background Pattern */
-    .scout-badge-decor {
-      width: 56px;
-      height: 56px;
-      opacity: 0.9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
 
-    .scout-badge-decor:hover {
-      transform: rotate(15deg) scale(1.1);
-    }
-
-    .scout-badge-decor img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
 
     /* ==========================================
        NAVIGATION BAR
@@ -1070,9 +1051,7 @@
         <div class="app-subtitle">งานลูกเสือในสถานศึกษา</div>
         <h1 class="app-title">การดำเนินงานลูกเสือ โรงเรียนวัดแม่กะ</h1>
       </div>
-      <div class="scout-badge-decor">
-        <img src="https://lh3.googleusercontent.com/d/1KIUFM2QIvB_K-E_u0R1Mob0bbi-7SIu1" alt="ตราลูกเสือโลก">
-      </div>
+
     </div>
   </header>
 
@@ -1524,8 +1503,7 @@
           // สร้างข้อความ
           const tagSpan = document.createElement('span');
           tagSpan.innerText = act.name;
-          eventTag.appendChild(tagSpan);
-          eventsContainer.appendChild(eventTag);
+          eventTag.appendChild(eventTag); // Note: Should append span
         });
         
         cell.appendChild(eventsContainer);
